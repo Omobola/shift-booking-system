@@ -17,7 +17,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Demo page
 https://shift-booking-app-233303.appspot.com/#/
 
-#### test ids:  6230, 4567, 5101
+#### test ids: 
+6230, 4567, 5101
 
 ## Assumptions:
 1. User already has an account and they know their id
