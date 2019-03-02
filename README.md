@@ -3,8 +3,8 @@ This application is created using angular7 and node Js for the api.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0 
 
 ##  Running application
-1. Do npm install - to install dependencies
-2. use npm start or node server.js to run the app.
+1. Do `npm install` - to install dependencies
+2. use `npm start` or node server.js to run the app.
 
 ## Running unit tests
 
