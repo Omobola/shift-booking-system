@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" (click)="prevYear()" type="button">
+              <i class="fa fa-chevron-left"></i>
+            </button>
+          </div>
+          <select class="custom-select" [(ngModel)]="selectedMonth" (change)="setSelectedMonth()">
+            <option *ngFor="let m of months" [ngValue]="m.value">{{m.description}}</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="nextYear()">
+              <span><i class="fa fa-chevron-right"></i></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="calendar">
+          <ul class="weekdays">
+            <li *ngFor="let weekDay of daysOfWeek">{{weekDay.display}}</li>
+          </ul>
+          <ul class="days">
+            <li [autoClose]="false" triggers="manual" #p="ngbPopover" (click)="selectedDate(p, day)" [ngbPopover]="popContent"
+              [popoverTitle]="popTitle" *ngFor="let day of days" [class]="getClassName(day)">
+              {{day}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="canvas-cont col-lg-6">
+    <div>
+      <span class="am shift-canvas col-sm-1"></span> Morning shift (am)
+    </div>
+    <div>
+      <span class="pm shift-canvas  col-sm-1"></span> Afternoon shift (pm)
+    </div>
+    <div>
+      <span class=" shift-canvas  col-sm-1"></span> No shift booked
+    </div>
+  </div>
+</div>
+<ng-template #popTitle>Select the shift for {{selectedDateString}}</ng-template>
+<ng-template #popContent>
+  <form [formGroup]="addEditShiftForm" (ngSubmit)="onSubmit()">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" formControlName="shiftPeriod" value="am">
+      <label class="form-check-label">Morning (am)</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" formControlName="shiftPeriod" value="pm">
+      <label class="form-check-label">Afternoon (pm)</label>
+    </div>
+    <div class="field buttons">
+      <button class="btn btn-info my-2 my-sm-0" type="submit" [disabled]="!addEditShiftForm.value.shiftPeriod">Save</button>
+      <button class="btn btn-light my-2 my-sm-0" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</ng-template>

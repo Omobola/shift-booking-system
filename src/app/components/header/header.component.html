@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+  </a>
+  <div class="form-inline my-2 my-lg-0">
+    <div class="error" *ngIf="showError">User does not exists!</div>
+    <div *ngIf="userDetails && userDetails.employeeId">
+      <button class="btn btn-light" (click)="logOut()">Log out</button>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!userDetails">
+      <input [ngClass]="{ 'is-invalid': submitted && f.employeeId.errors }" class="form-control mr-sm-2" type="number"
+        placeholder="employee's id" formControlName="employeeId" aria-label="employeeId">
+      <button class="btn btn-info my-2 my-sm-0" type="submit">Login</button>
+      <div *ngIf="submitted && f.employeeId.errors" class="invalid-feedback">
+        <div *ngIf="f.employeeId.errors.required">Employee's number is required</div>
+      </div>
+    </form>
+  </div>
+</nav>

@@ -1,0 +1,22 @@
+[
+    {
+        "firstname": "Phil",
+        "lastname": "williams",
+        "employeeId": 5101
+    },
+    {
+        "firstname": "Julia",
+        "lastname": "Michael",
+        "employeeId": 6230
+    },
+    {
+        "firstname": "Sly",
+        "lastname": "Walter",
+        "employeeId": 7890
+    },
+    {
+        "firstname": "Paige",
+        "lastname": "Gallo",
+        "employeeId": 4567
+    }
+]

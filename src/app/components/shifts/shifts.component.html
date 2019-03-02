@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="container container-fluid" *ngIf="!loading">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Hi {{userDetails.firstname}} {{userDetails.lastname}}</h5>
+          <ul class="card-text">
+            <li>You can see all you past, present and upcoming shifts.</li>
+            <li>You can book new shifts - click on the date you want, select your shift and save.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <app-date-picker [shifts]="shifts" (onSelectedDate)="getSelectedDate($event)"></app-date-picker>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

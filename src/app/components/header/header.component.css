@@ -1,0 +1,9 @@
+.error {
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-right: 1rem;
+}
+.name {
+    color: white;
+}
