@@ -38,12 +38,11 @@ export class DatePickerComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.submitted, this.addEditShiftForm.controls);
     // stop here if form is invalid
     if (this.addEditShiftForm.invalid) {
       return;
     }
-    this.onSelectedDate.emit({ p: this.pop, dateString: this.year + '-' + this.selectedMonth + '-' + this.selectedDay, shift: this.addEditShiftForm.value.shiftPeriod })
+    this.onSelectedDate.emit({ p: this.pop, dateString: this.year + '/' + this.selectedMonth + '/' + this.selectedDay, shift: this.addEditShiftForm.value.shiftPeriod })
   }
 
   nextYear() {
@@ -86,7 +85,7 @@ export class DatePickerComponent implements OnInit {
   // to make it more readable to the user
   getClassName(day) {
     let cname = '';
-    let dateString = this.year + '-' + this.selectedMonth + '-' + day;
+    let dateString = this.selectedMonth + '/' + day + '/' + this.year;
     if (day.toString().length > 0) {
       cname = 'li-not-empty is-clickable ';
       if (this.shifts && this.shifts.length > 0) {
@@ -113,7 +112,7 @@ export class DatePickerComponent implements OnInit {
       this.closePopover();
     }
     // set new pop
-    let dateString = this.year + '-' + this.selectedMonth + '-' + day;
+    let dateString = day + '/' + this.selectedMonth + '/' + this.year;
     const isPast = Globals.isBeforeDate(new Date(dateString), new Date());
     // You can not book shift for past dates
     if (!isPast) {

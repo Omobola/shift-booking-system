@@ -44,6 +44,7 @@ export class ShiftsComponent implements OnInit {
       "shift": obj.shift,
       "employeeId": this.empId
     }
+    console.log(obj);
     this.httpService.addShifts(this.empId, params).subscribe(res => {
       this.shifts.push(params);
       obj.p.close();

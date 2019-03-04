@@ -56,12 +56,6 @@ export class Globals {
         return firstDate.isSame(secondDate);
     }
 
-    public static isAfterDate(date1: Date, date2: Date) {
-        const firstDate = moment(date1).startOf('day');
-        const secondDate = moment(date2).startOf('day');
-        return firstDate.isAfter(secondDate);
-    }
-
     public static isBeforeDate(date1: Date, date2: Date) {
         const firstDate = moment(date1).startOf('day');
         const secondDate = moment(date2).startOf('day');
